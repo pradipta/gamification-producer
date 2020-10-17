@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/apis/trial")
 public class TrialController {
     private final KafkaTemplate<String, String> kafkaTemplate;
-    private static final String trialTopic = "trial_topic";
+    private static final String trialTopic = "trial-topic";
 
     @Autowired
     public TrialController(KafkaTemplate<String, String> kafkaTemplate) {
