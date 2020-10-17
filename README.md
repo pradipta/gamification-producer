@@ -49,10 +49,15 @@ Listen to the producer : `bin/kafka-console-consumer.sh --bootstrap-server local
 `mvn clean install tomcat7:run`
 Run the Spring Boot Application : `java -jar target/gamification-producer-0.0.1-SNAPSHOT.jar`
 cURL: 
-`curl --location --request POST 'localhost:8080/apis/trial' \
---header 'Content-Type: text/plain' \
---data-raw 'This is a trial message'`
+`curl --location --request POST 'localhost:8080/apis/trial/json-message' \
+--header 'Accept: application/json' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "firstname": "Pradipta",
+    "lastname": "Sarma"
+}'`
 You can see the message on the consumer terminal
+
 
 
 
