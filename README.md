@@ -40,14 +40,22 @@ Setup:
 App runs on 8080
 
 Download [Kafka](https://www.apache.org/dyn/closer.cgi?path=/kafka/2.6.0/kafka-2.6.0-src.tgz) and extract the content into a folder.
+
 Change directory in the Kafka project directory.
+
 Build the Kafka project if not already : `./gradlew jar -PscalaVersion=2.13.2`
+
 Run Zookeeper : `bin/zookeeper-server-start.sh config/zookeeper.properties`
+
 Run Kafka server : `bin/kafka-server-start.sh config/server.properties`
+
 Create a trial topic: `bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic trial-topic`
+
 Listen to the producer : `bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic trial-topic --from-beginning`
 `mvn clean install tomcat7:run`
+
 Run the Spring Boot Application : `java -jar target/gamification-producer-0.0.1-SNAPSHOT.jar`
+
 cURL: 
 `curl --location --request POST 'localhost:8080/apis/trial/json-message' \
 --header 'Accept: application/json' \
@@ -56,6 +64,7 @@ cURL:
     "firstname": "Pradipta",
     "lastname": "Sarma"
 }'`
+
 You can see the message on the consumer terminal
 
 
