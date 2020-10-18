@@ -3,10 +3,10 @@ Problem statement:
 `Implement Online Game Gratification system using Kafka Streams.
 Product Offering
 --There could be multiple active games at the same time.
---A user registers and plays a particular game [or could be multiple games at the same time]
+--A trialUser registers and plays a particular game [or could be multiple games at the same time]
 --Users registered in a game can have different roles eg: Admin Player
-We want to design a system which can analyse user game progress and perform some action based on certain criteria.
-Eg: When user achieves certain level in the game we want to send email notification (or perform any other action).
+We want to design a system which can analyse trialUser game progress and perform some action based on certain criteria.
+Eg: When trialUser achieves certain level in the game we want to send email notification (or perform any other action).
 We will implement this in 2 Parts.
 Part 1:
 Learning Objectives:
@@ -15,8 +15,8 @@ Learning Objectives:
 This video is a good starting point to learn Kafka.
 https://www.youtube.com/watch?v=JalUUBKdcA0&t=36s
 1-Create a Spring Boot Application which produces User Game Progress Event.
-Consider below sample event message and publish this to a Kafka Topic, when the user completes a particular level.
-It contains the time spent by the user in completing that level and the overall game completion percent.
+Consider below sample event message and publish this to a Kafka Topic, when the trialUser completes a particular level.
+It contains the time spent by the trialUser in completing that level and the overall game completion percent.
 Sample Event
 {
 	userId : 1,                      //0<userId<=100
