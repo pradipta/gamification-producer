@@ -1,6 +1,6 @@
-package com.pradipta.gamificationproducer.configuration;
+package com.pradipta.gamificationproducer.config;
 
-import com.pradipta.gamificationproducer.entities.user.User;
+import com.pradipta.gamificationproducer.trial.entities.user.TrialUser;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.context.annotation.Bean;
@@ -16,7 +16,7 @@ import java.util.Map;
 @Configuration
 public class KafkaConfiguration {
     @Bean
-    public ProducerFactory<String, User> producerFactory() {
+    public ProducerFactory<String, TrialUser> producerFactory() {
         Map<String, Object> map = new HashMap<>();
         map.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
         map.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
@@ -25,7 +25,7 @@ public class KafkaConfiguration {
     }
 
     @Bean
-    public KafkaTemplate<String, User> kafkaTemplate() {
+    public KafkaTemplate<String, TrialUser> kafkaTemplate() {
         return new KafkaTemplate<>(producerFactory());
     }
 }

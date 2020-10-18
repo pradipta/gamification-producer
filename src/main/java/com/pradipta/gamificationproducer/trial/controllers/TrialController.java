@@ -1,6 +1,6 @@
-package com.pradipta.gamificationproducer.controllers;
+package com.pradipta.gamificationproducer.trial.controllers;
 
-import com.pradipta.gamificationproducer.entities.user.User;
+import com.pradipta.gamificationproducer.trial.entities.user.TrialUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -12,17 +12,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/apis/trial")
 public class TrialController {
-    private final KafkaTemplate<String, User> kafkaTemplate;
+    private final KafkaTemplate<String, TrialUser> kafkaTemplate;
     private static final String trialTopic = "trial-topic";
 
     @Autowired
-    public TrialController(KafkaTemplate<String, User> kafkaTemplate) {
+    public TrialController(KafkaTemplate<String, TrialUser> kafkaTemplate) {
         this.kafkaTemplate = kafkaTemplate;
     }
 
     @PostMapping("/json-message")
-    public ResponseEntity<String> postTrialMessage(@RequestBody User user) {
-        kafkaTemplate.send(trialTopic, user);
+    public ResponseEntity<String> postTrialMessage(@RequestBody TrialUser trialUser) {
+        kafkaTemplate.send(trialTopic, trialUser);
         return ResponseEntity.ok("Message Sent");
     }
 }

@@ -1,9 +1,9 @@
-package com.pradipta.gamificationproducer.entities.user;
+package com.pradipta.gamificationproducer.trial.entities.user;
 
-public class User {
+public class TrialUser {
     private String firstname;
     private String lastname;
-    public User() {
+    public TrialUser() {
     }
 
     public String getFirstname() {
