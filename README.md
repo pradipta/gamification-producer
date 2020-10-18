@@ -67,4 +67,4 @@ cURL:
 
 You can see the message on the consumer terminal
 
-Game APIs Postman collection: `https://www.getpostman.com/collections/d0dac0ccc156ba8606fd`
+Game APIs Postman [collection](https://www.getpostman.com/collections/d0dac0ccc156ba8606fd)
