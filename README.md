@@ -68,3 +68,22 @@ cURL:
 You can see the message on the consumer terminal
 
 Game APIs Postman [collection](https://www.getpostman.com/collections/d0dac0ccc156ba8606fd)
+Curl to play after login:
+
+`curl --location --request GET 'localhost:8080/api/game/roll' \
+ --header 'Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiZXhwIjoxNjAzNjE0MjgyLCJpYXQiOjE2MDMwMDk0ODJ9.m8WV49OuefE9RiEj17gm0LJCUiQnXVdpkwPi4X53U6jeNKuSAzJxVYzU4Xytbs0JeUUKvPPWxJGl1PI_GcOuiA'`
+
+Create topic: `bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic user-level-message`
+
+Kafka Listener:
+
+```
+   SLF4J: Found binding in [jar:file:/Users/pradipta.sarma/tools/kafka-2.6.0-src/connect/mirror/build/dependant-libs/slf4j-log4j12-1.7.30.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+   SLF4J: Found binding in [jar:file:/Users/pradipta.sarma/tools/kafka-2.6.0-src/connect/mirror-client/build/dependant-libs/slf4j-log4j12-1.7.30.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+   SLF4J: Found binding in [jar:file:/Users/pradipta.sarma/tools/kafka-2.6.0-src/connect/json/build/dependant-libs/slf4j-log4j12-1.7.30.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+   SLF4J: Found binding in [jar:file:/Users/pradipta.sarma/tools/kafka-2.6.0-src/connect/basic-auth-extension/build/dependant-libs/slf4j-log4j12-1.7.30.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+   SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+   SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+   {"email":"pradipta@sarma.com","level":5,"score":0,"completion":50}
+   {"email":"pradipta@sarma.com","level":6,"score":0,"completion":60}
+```
