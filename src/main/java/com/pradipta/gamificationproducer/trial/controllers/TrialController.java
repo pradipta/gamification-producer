@@ -12,17 +12,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/apis/trial")
 public class TrialController {
-    private final KafkaTemplate<String, TrialUser> kafkaTemplate;
+    private final KafkaTemplate<String, TrialUser> kafkaTemplateTrialUser;
     private static final String trialTopic = "trial-topic";
 
     @Autowired
-    public TrialController(KafkaTemplate<String, TrialUser> kafkaTemplate) {
-        this.kafkaTemplate = kafkaTemplate;
+    public TrialController(KafkaTemplate<String, TrialUser> kafkaTemplateTrialUser) {
+        this.kafkaTemplateTrialUser = kafkaTemplateTrialUser;
     }
 
     @PostMapping("/json-message")
     public ResponseEntity<String> postTrialMessage(@RequestBody TrialUser trialUser) {
-        kafkaTemplate.send(trialTopic, trialUser);
+        kafkaTemplateTrialUser.send(trialTopic, trialUser);
         return ResponseEntity.ok("Message Sent");
     }
 }
